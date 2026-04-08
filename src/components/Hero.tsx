@@ -1,38 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const NAME = "Jacob Alegre";
+import { Spotlight } from "@/components/ui/spotlight";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { MovingBorderButton } from "@/components/ui/moving-border";
 
 export default function Hero() {
-  const [displayed, setDisplayed] = useState("");
-  const [typing, setTyping] = useState(true);
-  const [showCursor, setShowCursor] = useState(true);
   const [showSubtitle, setShowSubtitle] = useState(false);
   const [showHook, setShowHook] = useState(false);
   const [showCTAs, setShowCTAs] = useState(false);
 
+  // Stagger reveal after name animation (~0.5s per word × 2 words = ~1s)
   useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i < NAME.length) {
-        setDisplayed(NAME.slice(0, i + 1));
-        i++;
-      } else {
-        clearInterval(interval);
-        setTyping(false);
-
-        // Hide cursor after 2s
-        setTimeout(() => setShowCursor(false), 2000);
-
-        // Stagger reveal of subtitle, hook, CTAs
-        setTimeout(() => setShowSubtitle(true), 300);
-        setTimeout(() => setShowHook(true), 600);
-        setTimeout(() => setShowCTAs(true), 900);
-      }
-    }, 80);
-
-    return () => clearInterval(interval);
+    const t1 = setTimeout(() => setShowSubtitle(true), 1200);
+    const t2 = setTimeout(() => setShowHook(true), 1500);
+    const t3 = setTimeout(() => setShowCTAs(true), 1800);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+    };
   }, []);
 
   return (
@@ -40,26 +27,31 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden"
     >
-      {/* Faint grid background */}
+      {/* Spotlight */}
+      <Spotlight />
+
+      {/* Dot grid background */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 -z-10"
         style={{
-          backgroundImage: `linear-gradient(rgba(42,42,46,0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(42,42,46,0.3) 1px, transparent 1px)`,
-          backgroundSize: "64px 64px",
+          backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)`,
+          backgroundSize: "32px 32px",
         }}
       />
+      {/* Radial fade at edges */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_40%,#0C0C0D_100%)]" />
 
       <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Name */}
-        <h1 className="font-display font-bold text-[clamp(3rem,9vw,7rem)] leading-none tracking-tight text-[#F0EDE8] mb-4">
-          {displayed}
-          {(typing || showCursor) && <span className="cursor" />}
-        </h1>
+        {/* Name — Text Generate Effect */}
+        <TextGenerateEffect
+          words="Jacob Alegre"
+          className="font-display text-[clamp(3rem,9vw,7rem)]"
+          duration={0.6}
+        />
 
         {/* Subtitle */}
         <p
-          className={`font-body text-[#7B96B2] text-lg md:text-xl tracking-widest uppercase transition-all duration-500 ${
+          className={`font-body text-[#7B96B2] text-lg md:text-xl tracking-widest uppercase mt-4 transition-all duration-500 ${
             showSubtitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -87,12 +79,15 @@ export default function Hero() {
           >
             View My Work
           </a>
-          <a
+          <MovingBorderButton
+            as="a"
             href="#contact"
-            className="px-8 py-3 border border-[#2A2A2E] text-[#8A8A90] font-body text-sm tracking-wide hover:bg-[#7B96B2] hover:border-[#7B96B2] hover:text-[#0C0C0D] transition-all duration-200"
+            containerClassName="rounded-full h-auto"
+            className="font-body text-sm tracking-wide px-8 py-3"
+            duration={2500}
           >
             Get In Touch
-          </a>
+          </MovingBorderButton>
         </div>
       </div>
 

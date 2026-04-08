@@ -1,4 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 
 const projects = [
   {
@@ -64,53 +65,61 @@ export default function Projects() {
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, i) => (
             <ScrollReveal key={i} delay={i * 100}>
-              <div className="group relative h-full border border-[#2A2A2E] bg-[#1A1A1E] p-8 flex flex-col transition-all duration-300 hover:border-[#7B96B2]/50 hover:bg-[#1E1E24]">
-                {/* Header row */}
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <h3 className="font-display font-semibold text-xl text-[#F0EDE8] group-hover:text-[#7B96B2] transition-colors duration-200">
-                    {project.name}
-                  </h3>
-                  <div className="flex items-center gap-3 flex-shrink-0">
-                    {project.status && (
-                      <span className="font-body text-xs text-[#7B96B2] border border-[#7B96B2]/30 px-2 py-0.5 tracking-wide">
-                        {project.status}
-                      </span>
-                    )}
-                    {project.github ? (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${project.name} GitHub repository`}
-                        className="text-[#8A8A90] hover:text-[#7B96B2] transition-colors"
-                      >
-                        <ArrowUpRight />
-                      </a>
-                    ) : (
-                      <span className="text-[#2A2A2E]">
-                        <ArrowUpRight />
-                      </span>
-                    )}
-                  </div>
-                </div>
+              <CardContainer containerClassName="w-full" className="w-full">
+                <CardBody className="bg-[#1A1A1E] relative border border-[#2A2A2E] hover:border-[#7B96B2]/40 w-full p-8 flex flex-col transition-colors duration-300">
+                  {/* Header row */}
+                  <CardItem translateZ={50} className="w-full">
+                    <div className="flex items-start justify-between gap-4 mb-4">
+                      <h3 className="font-display font-semibold text-xl text-[#F0EDE8]">
+                        {project.name}
+                      </h3>
+                      <div className="flex items-center gap-3 flex-shrink-0">
+                        {project.status && (
+                          <span className="font-body text-xs text-[#7B96B2] border border-[#7B96B2]/30 px-2 py-0.5 tracking-wide">
+                            {project.status}
+                          </span>
+                        )}
+                        {project.github ? (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${project.name} GitHub repository`}
+                            className="text-[#8A8A90] hover:text-[#7B96B2] transition-colors"
+                          >
+                            <ArrowUpRight />
+                          </a>
+                        ) : (
+                          <span className="text-[#2A2A2E]">
+                            <ArrowUpRight />
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </CardItem>
 
-                {/* Description */}
-                <p className="font-body text-[#8A8A90] text-sm leading-relaxed flex-1 mb-6">
-                  {project.description}
-                </p>
+                  {/* Description */}
+                  <CardItem translateZ={40} className="w-full mb-6">
+                    <p className="font-body text-[#8A8A90] text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </CardItem>
 
-                {/* Tech stack */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="font-body text-xs text-[#8A8A90] bg-[#0C0C0D] border border-[#2A2A2E] px-2.5 py-1"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                  {/* Tech stack */}
+                  <CardItem translateZ={30} className="w-full">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="font-body text-xs text-[#8A8A90] bg-[#0C0C0D] border border-[#2A2A2E] px-2.5 py-1"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
             </ScrollReveal>
           ))}
         </div>

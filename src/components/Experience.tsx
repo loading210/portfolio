@@ -1,4 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
+import { TracingBeam } from "@/components/ui/tracing-beam";
 
 const experiences = [
   {
@@ -48,43 +49,45 @@ export default function Experience() {
           </h2>
         </ScrollReveal>
 
-        <div className="space-y-6">
-          {experiences.map((exp, i) => (
-            <ScrollReveal key={i} delay={i * 100}>
-              <div className="group relative border border-[#2A2A2E] bg-[#1A1A1E] p-8 transition-all duration-300 hover:border-[#7B96B2]/40 hover:bg-[#1E1E24]">
-                {/* Left accent bar */}
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-[#2A2A2E] group-hover:bg-[#7B96B2] transition-colors duration-300" />
+        <TracingBeam className="pl-6 md:pl-20">
+          <div className="space-y-6">
+            {experiences.map((exp, i) => (
+              <ScrollReveal key={i} delay={i * 100}>
+                <div className="group relative border border-[#2A2A2E] bg-[#1A1A1E] p-8 transition-all duration-300 hover:border-[#7B96B2]/40 hover:bg-[#1E1E24]">
+                  {/* Left accent bar */}
+                  <div className="absolute left-0 top-0 bottom-0 w-px bg-[#2A2A2E] group-hover:bg-[#7B96B2] transition-colors duration-300" />
 
-                {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
-                  <div>
-                    <h3 className="font-display font-semibold text-xl text-[#F0EDE8]">
-                      {exp.role}
-                    </h3>
-                    <p className="font-body text-[#7B96B2] text-sm mt-1">
-                      {exp.company} · {exp.location}
-                    </p>
-                  </div>
-                  <span className="font-body text-xs text-[#8A8A90] tracking-wide whitespace-nowrap mt-1">
-                    {exp.dates}
-                  </span>
-                </div>
-
-                {/* Bullets */}
-                <ul className="space-y-3">
-                  {exp.bullets.map((bullet, j) => (
-                    <li key={j} className="flex gap-3 items-start">
-                      <span className="mt-2 flex-shrink-0 w-1 h-1 rounded-full bg-[#7B96B2]" />
-                      <p className="font-body text-[#8A8A90] text-sm leading-relaxed">
-                        {bullet}
+                  {/* Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
+                    <div>
+                      <h3 className="font-display font-semibold text-xl text-[#F0EDE8]">
+                        {exp.role}
+                      </h3>
+                      <p className="font-body text-[#7B96B2] text-sm mt-1">
+                        {exp.company} · {exp.location}
                       </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+                    </div>
+                    <span className="font-body text-xs text-[#8A8A90] tracking-wide whitespace-nowrap mt-1">
+                      {exp.dates}
+                    </span>
+                  </div>
+
+                  {/* Bullets */}
+                  <ul className="space-y-3">
+                    {exp.bullets.map((bullet, j) => (
+                      <li key={j} className="flex gap-3 items-start">
+                        <span className="mt-2 flex-shrink-0 w-1 h-1 rounded-full bg-[#7B96B2]" />
+                        <p className="font-body text-[#8A8A90] text-sm leading-relaxed">
+                          {bullet}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </TracingBeam>
       </div>
     </section>
   );
