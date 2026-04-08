@@ -35,7 +35,7 @@ const projects = [
   },
 ];
 
-const SCROLL_PER_PROJECT = 600;
+const SCROLL_PER_PROJECT = 1200;
 const TOTAL_SCROLL = SCROLL_PER_PROJECT * (projects.length - 1);
 
 export default function ScrollProjects() {
