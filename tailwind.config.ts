@@ -9,40 +9,44 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0A0A0B",
-        surface: "#111115",
-        "surface-2": "#18181D",
-        border: "#1F1F25",
-        "border-bright": "#2E2E38",
-        "text-primary": "#F0EDE8",
-        "text-secondary": "#8A8A90",
-        accent: "#3B82F6",
-        "accent-dim": "#1E3A5F",
-        "accent-muted": "#60A5FA",
+        bg: "#06050E",
+        surface: "#0C0B18",
+        "surface-2": "#131121",
+        border: "#1A1728",
+        "border-bright": "#2A2545",
+        "text-primary": "#EEE8FF",
+        "text-secondary": "#6E6A96",
+        "text-tertiary": "#35324A",
+        accent: "#7C3AED",
+        "accent-2": "#A78BFA",
+        "accent-dim": "#2E1A6B",
       },
       fontFamily: {
-        display: ["var(--font-syne)", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "sans-serif"],
         body: ["var(--font-dm-sans)", "sans-serif"],
       },
       animation: {
-        "fade-up": "fadeUp 0.5s ease forwards",
+        "fade-up": "fadeUp 0.6s ease forwards",
         "blink": "blink 1s step-end infinite",
-        "pulse-slow": "pulse 3s cubic-bezier(0.4,0,0.6,1) infinite",
-        "badge-glow": "badgeGlow 2s ease-in-out infinite alternate",
+        "float": "float 6s ease-in-out infinite",
       },
       keyframes: {
         fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "0%": { opacity: "0", transform: "translateY(24px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         blink: {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0" },
         },
-        badgeGlow: {
-          "0%": { boxShadow: "0 0 4px rgba(59,130,246,0.3)" },
-          "100%": { boxShadow: "0 0 12px rgba(59,130,246,0.6)" },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
         },
+      },
+      letterSpacing: {
+        tightest: "-0.04em",
+        tighter: "-0.03em",
       },
     },
   },

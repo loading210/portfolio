@@ -89,23 +89,29 @@ export default function ScrollProjects() {
       className="relative"
     >
       {/* Sticky stage */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col bg-[#0C0C0D]">
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col bg-[#06050E]">
 
         {/* Top bar */}
-        <div className="flex items-center justify-between px-6 md:px-16 py-5 border-b border-white/5 flex-shrink-0">
-          <p className="font-body text-xs tracking-[0.2em] text-[#60A5FA] uppercase">
-            03 / Projects
-          </p>
-          <p className="font-body text-xs text-[#8A8A90] font-mono">
-            {String(activeIndex + 1).padStart(2, "0")} /{" "}
+        <div className="flex items-center justify-between px-6 md:px-16 py-5 border-b border-[#1A1728] flex-shrink-0">
+          <div className="flex items-center gap-4">
+            <div className="h-px w-5 bg-gradient-to-r from-[#7C3AED] to-[#A78BFA]" />
+            <p className="font-body text-xs tracking-[0.2em] text-[#A78BFA] uppercase">
+              Projects
+            </p>
+          </div>
+          <p className="font-display text-xs text-[#35324A] font-mono">
+            {String(activeIndex + 1).padStart(2, "0")}&nbsp;/&nbsp;
             {String(projects.length).padStart(2, "0")}
           </p>
         </div>
 
         {/* Progress bar */}
-        <div className="h-px bg-white/5 flex-shrink-0 relative">
+        <div className="h-px bg-[#1A1728] flex-shrink-0 relative">
           <motion.div
-            className="absolute left-0 top-0 h-full bg-[#3B82F6]/60"
+            className="absolute left-0 top-0 h-full"
+            style={{
+              background: "linear-gradient(90deg, #7C3AED, #A78BFA)",
+            }}
             animate={{ width: `${((activeIndex + 1) / projects.length) * 100}%` }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           />
@@ -122,41 +128,51 @@ export default function ScrollProjects() {
               initial="enter"
               animate="center"
               exit="exit"
-              className="flex items-center gap-8 md:gap-16 w-full"
+              className="flex items-center gap-8 md:gap-20 w-full"
             >
               {/* Ghost number */}
               <span
-                className="text-[120px] md:text-[160px] font-black leading-none select-none flex-shrink-0 hidden md:block font-display"
-                style={{ color: "rgba(59,130,246,0.04)" }}
+                className="font-display font-bold leading-none select-none flex-shrink-0 hidden md:block tracking-tightest"
+                style={{
+                  fontSize: "clamp(6rem, 18vw, 14rem)",
+                  color: "rgba(124,58,237,0.06)",
+                  letterSpacing: "-0.05em",
+                }}
               >
                 {projects[activeIndex].num}
               </span>
 
               {/* Project details */}
-              <div className="flex flex-col gap-5 max-w-xl">
+              <div className="flex flex-col gap-5 max-w-2xl">
+                {/* Status */}
                 <span
                   className={`font-body text-xs tracking-widest uppercase font-mono ${
                     projects[activeIndex].isWip
-                      ? "text-[#3B82F6]/70"
-                      : "text-[#8A8A90]"
+                      ? "text-[#A78BFA]/70"
+                      : "text-[#6E6A96]"
                   }`}
                 >
                   {projects[activeIndex].status}
                 </span>
 
-                <h2 className="font-display text-4xl md:text-6xl font-bold text-[#F0EDE8] leading-tight">
+                {/* Title */}
+                <h2
+                  className="font-display font-bold leading-tight tracking-tighter gradient-text"
+                  style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)" }}
+                >
                   {projects[activeIndex].title}
                 </h2>
 
-                <p className="font-body text-[#8A8A90] text-base leading-relaxed">
+                <p className="font-body text-[#6E6A96] text-base md:text-lg leading-relaxed max-w-lg">
                   {projects[activeIndex].description}
                 </p>
 
+                {/* Tech tags */}
                 <div className="flex flex-wrap gap-2">
                   {projects[activeIndex].tech.map((t) => (
                     <span
                       key={t}
-                      className="font-body text-xs px-3 py-1 border border-[#1F1F25] text-[#8A8A90] font-mono hover:border-[#3B82F6]/30 hover:text-[#60A5FA] transition-colors duration-200"
+                      className="font-body text-xs px-3 py-1.5 rounded-full font-mono text-[#A78BFA] bg-[#7C3AED]/[0.1] border border-[#7C3AED]/20 hover:bg-[#7C3AED]/20 hover:border-[#7C3AED]/40 transition-all duration-200"
                     >
                       {t}
                     </span>
@@ -168,12 +184,12 @@ export default function ScrollProjects() {
                     href={projects[activeIndex].link!}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-body text-sm text-[#60A5FA] hover:text-[#F0EDE8] transition-colors w-fit"
+                    className="inline-flex items-center gap-2 font-body text-sm text-[#A78BFA] hover:text-[#EEE8FF] transition-colors w-fit"
                   >
                     View on GitHub
                     <svg
-                      width="14"
-                      height="14"
+                      width="13"
+                      height="13"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -199,12 +215,12 @@ export default function ScrollProjects() {
                 animate={{
                   background:
                     i === activeIndex
-                      ? "rgba(59,130,246,0.9)"
-                      : "rgba(255,255,255,0.1)",
-                  height: i === activeIndex ? 20 : 4,
+                      ? "rgba(167,139,250,0.9)"
+                      : "rgba(255,255,255,0.08)",
+                  height: i === activeIndex ? 24 : 4,
                 }}
                 transition={{ duration: 0.3 }}
-                className="w-[3px] rounded-full"
+                className="w-[2px] rounded-full"
               />
             ))}
           </div>
@@ -213,11 +229,10 @@ export default function ScrollProjects() {
           <motion.p
             animate={{ opacity: activeIndex === projects.length - 1 ? 0 : 1 }}
             transition={{ duration: 0.3 }}
-            className="absolute bottom-8 left-6 md:left-16 font-body text-xs text-[#2E2E38] font-mono tracking-widest"
+            className="absolute bottom-8 left-6 md:left-16 font-body text-xs text-[#35324A] font-mono tracking-widest"
           >
             scroll ↓
           </motion.p>
-
         </div>
       </div>
     </div>
