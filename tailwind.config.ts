@@ -9,12 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0C0C0D",
-        surface: "#1A1A1E",
-        border: "#2A2A2E",
+        bg: "#0A0A0B",
+        surface: "#111115",
+        "surface-2": "#18181D",
+        border: "#1F1F25",
+        "border-bright": "#2E2E38",
         "text-primary": "#F0EDE8",
         "text-secondary": "#8A8A90",
-        accent: "#7B96B2",
+        accent: "#3B82F6",
+        "accent-dim": "#1E3A5F",
+        "accent-muted": "#60A5FA",
       },
       fontFamily: {
         display: ["var(--font-syne)", "sans-serif"],
@@ -23,6 +27,8 @@ const config: Config = {
       animation: {
         "fade-up": "fadeUp 0.5s ease forwards",
         "blink": "blink 1s step-end infinite",
+        "pulse-slow": "pulse 3s cubic-bezier(0.4,0,0.6,1) infinite",
+        "badge-glow": "badgeGlow 2s ease-in-out infinite alternate",
       },
       keyframes: {
         fadeUp: {
@@ -32,6 +38,10 @@ const config: Config = {
         blink: {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0" },
+        },
+        badgeGlow: {
+          "0%": { boxShadow: "0 0 4px rgba(59,130,246,0.3)" },
+          "100%": { boxShadow: "0 0 12px rgba(59,130,246,0.6)" },
         },
       },
     },

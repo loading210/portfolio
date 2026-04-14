@@ -11,7 +11,7 @@ export default function About() {
     <section id="about" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <span className="font-body text-xs text-[#7B96B2] tracking-[0.2em] uppercase">
+          <span className="font-body text-xs text-[#60A5FA] tracking-[0.2em] uppercase">
             01 / About
           </span>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-[#F0EDE8] mt-3 mb-12">
@@ -41,10 +41,10 @@ export default function About() {
 
             {/* Stat strip */}
             <ScrollReveal delay={200}>
-              <div className="flex gap-8 mt-10 pt-10 border-t border-[#2A2A2E]">
+              <div className="flex gap-8 mt-10 pt-10 border-t border-[#1F1F25]">
                 {stats.map((stat) => (
                   <div key={stat.label}>
-                    <p className="font-display font-bold text-2xl text-[#F0EDE8]">
+                    <p className="font-display font-bold text-2xl text-[#3B82F6]">
                       {stat.value}
                     </p>
                     <p className="font-body text-xs text-[#8A8A90] tracking-widest uppercase mt-1">
@@ -58,24 +58,33 @@ export default function About() {
 
           {/* Right: Currently working on */}
           <ScrollReveal delay={200}>
-            <div className="bg-[#1A1A1E] border border-[#2A2A2E] p-8">
-              <p className="font-body text-xs text-[#7B96B2] tracking-[0.2em] uppercase mb-6">
+            <div className="bg-[#111115] border border-[#1F1F25] p-8 relative overflow-hidden group hover:border-[#3B82F6]/30 transition-colors duration-300">
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#3B82F6]/[0.04] rounded-bl-full pointer-events-none" />
+
+              <p className="font-body text-xs text-[#60A5FA] tracking-[0.2em] uppercase mb-6">
                 Currently Working On
               </p>
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-display font-semibold text-[#F0EDE8] text-lg">
+                  <h3 className="font-display font-semibold text-[#F0EDE8] text-lg flex items-center gap-2">
                     Vollytics
+                    <span className="text-[10px] font-body font-normal text-[#3B82F6]/70 tracking-widest uppercase border border-[#3B82F6]/20 px-2 py-0.5 rounded-full">
+                      WIP
+                    </span>
                   </h3>
                   <p className="font-body text-[#8A8A90] text-sm mt-1 leading-relaxed">
                     Volleyball analytics with pose estimation, ball tracking, and
                     live match statistics powered by computer vision.
                   </p>
                 </div>
-                <div className="border-t border-[#2A2A2E]" />
+                <div className="border-t border-[#1F1F25]" />
                 <div>
-                  <h3 className="font-display font-semibold text-[#F0EDE8] text-lg">
+                  <h3 className="font-display font-semibold text-[#F0EDE8] text-lg flex items-center gap-2">
                     Filipino Culinary Platform
+                    <span className="text-[10px] font-body font-normal text-[#3B82F6]/70 tracking-widest uppercase border border-[#3B82F6]/20 px-2 py-0.5 rounded-full">
+                      WIP
+                    </span>
                   </h3>
                   <p className="font-body text-[#8A8A90] text-sm mt-1 leading-relaxed">
                     A cultural recipe-sharing platform designed to preserve and

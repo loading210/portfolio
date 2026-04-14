@@ -93,7 +93,7 @@ export default function ScrollProjects() {
 
         {/* Top bar */}
         <div className="flex items-center justify-between px-6 md:px-16 py-5 border-b border-white/5 flex-shrink-0">
-          <p className="font-body text-xs tracking-[0.2em] text-[#7B96B2] uppercase">
+          <p className="font-body text-xs tracking-[0.2em] text-[#60A5FA] uppercase">
             03 / Projects
           </p>
           <p className="font-body text-xs text-[#8A8A90] font-mono">
@@ -105,7 +105,7 @@ export default function ScrollProjects() {
         {/* Progress bar */}
         <div className="h-px bg-white/5 flex-shrink-0 relative">
           <motion.div
-            className="absolute left-0 top-0 h-full bg-[#7B96B2]/40"
+            className="absolute left-0 top-0 h-full bg-[#3B82F6]/60"
             animate={{ width: `${((activeIndex + 1) / projects.length) * 100}%` }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           />
@@ -127,7 +127,7 @@ export default function ScrollProjects() {
               {/* Ghost number */}
               <span
                 className="text-[120px] md:text-[160px] font-black leading-none select-none flex-shrink-0 hidden md:block font-display"
-                style={{ color: "rgba(255,255,255,0.03)" }}
+                style={{ color: "rgba(59,130,246,0.04)" }}
               >
                 {projects[activeIndex].num}
               </span>
@@ -137,7 +137,7 @@ export default function ScrollProjects() {
                 <span
                   className={`font-body text-xs tracking-widest uppercase font-mono ${
                     projects[activeIndex].isWip
-                      ? "text-amber-500/60"
+                      ? "text-[#3B82F6]/70"
                       : "text-[#8A8A90]"
                   }`}
                 >
@@ -156,7 +156,7 @@ export default function ScrollProjects() {
                   {projects[activeIndex].tech.map((t) => (
                     <span
                       key={t}
-                      className="font-body text-xs px-3 py-1 border border-[#2A2A2E] text-[#8A8A90] font-mono"
+                      className="font-body text-xs px-3 py-1 border border-[#1F1F25] text-[#8A8A90] font-mono hover:border-[#3B82F6]/30 hover:text-[#60A5FA] transition-colors duration-200"
                     >
                       {t}
                     </span>
@@ -168,7 +168,7 @@ export default function ScrollProjects() {
                     href={projects[activeIndex].link!}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-body text-sm text-[#8A8A90] hover:text-[#F0EDE8] transition-colors w-fit"
+                    className="inline-flex items-center gap-2 font-body text-sm text-[#60A5FA] hover:text-[#F0EDE8] transition-colors w-fit"
                   >
                     View on GitHub
                     <svg
@@ -199,7 +199,7 @@ export default function ScrollProjects() {
                 animate={{
                   background:
                     i === activeIndex
-                      ? "rgba(123,150,178,0.8)"
+                      ? "rgba(59,130,246,0.9)"
                       : "rgba(255,255,255,0.1)",
                   height: i === activeIndex ? 20 : 4,
                 }}
@@ -213,7 +213,7 @@ export default function ScrollProjects() {
           <motion.p
             animate={{ opacity: activeIndex === projects.length - 1 ? 0 : 1 }}
             transition={{ duration: 0.3 }}
-            className="absolute bottom-8 left-6 md:left-16 font-body text-xs text-[#2A2A2E] font-mono tracking-widest"
+            className="absolute bottom-8 left-6 md:left-16 font-body text-xs text-[#2E2E38] font-mono tracking-widest"
           >
             scroll ↓
           </motion.p>

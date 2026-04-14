@@ -3,12 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0C0C0D;
-  --surface: #1A1A1E;
-  --border: #2A2A2E;
+  --bg: #0A0A0B;
+  --surface: #111115;
+  --surface-2: #18181D;
+  --border: #1F1F25;
+  --border-bright: #2E2E38;
   --text-primary: #F0EDE8;
   --text-secondary: #8A8A90;
-  --accent: #7B96B2;
+  --accent: #3B82F6;
+  --accent-dim: #1E3A5F;
+  --accent-muted: #60A5FA;
 }
 
 html {
@@ -66,7 +70,7 @@ body::before {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -74,10 +78,19 @@ body::before {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
+  background: var(--border-bright);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: var(--accent);
+}
+
+/* Accent glow utility */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), 0 0 40px rgba(59, 130, 246, 0.05);
+}
+
+.glow-accent-sm {
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
 }

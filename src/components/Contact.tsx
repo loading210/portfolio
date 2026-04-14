@@ -5,14 +5,17 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center py-24 px-6 md:px-16 bg-[#111113] relative overflow-hidden"
+      className="min-h-screen flex items-center py-24 px-6 md:px-16 bg-[#0D0D10] relative overflow-hidden"
     >
+      {/* Ambient blue glow bottom-left */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[300px] bg-[#3B82F6]/[0.05] blur-[100px] pointer-events-none rounded-full" />
+
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
 
         {/* Left column: contact content */}
         <div className="flex flex-col gap-8">
           <ScrollReveal>
-            <p className="font-body text-xs tracking-[0.2em] text-[#7B96B2] uppercase">
+            <p className="font-body text-xs tracking-[0.2em] text-[#60A5FA] uppercase">
               04 / Contact
             </p>
           </ScrollReveal>
@@ -25,9 +28,9 @@ export default function Contact() {
 
           <ScrollReveal delay={160}>
             <p className="font-body text-[#8A8A90] text-base leading-relaxed max-w-sm">
-              I&apos;m currently open to Summer 2026 internship opportunities. Whether
-              you have a role in mind, want to talk about a project, or just want to
-              say hi — my inbox is open.
+              Currently open to Summer 2026 internship opportunities. Whether
+              you have a role in mind, want to talk about a project, or just
+              want to say hi — my inbox is open.
             </p>
           </ScrollReveal>
 
@@ -35,7 +38,7 @@ export default function Contact() {
           <ScrollReveal delay={240}>
             <a
               href="mailto:jsalegre@uci.edu"
-              className="group inline-flex items-center gap-3 text-[#F0EDE8] text-lg font-medium border border-[#2A2A2E] rounded-xl px-6 py-4 hover:border-[#7B96B2]/40 hover:bg-white/5 transition-all duration-200 w-fit"
+              className="group inline-flex items-center gap-3 text-[#F0EDE8] text-lg font-medium border border-[#1F1F25] rounded-xl px-6 py-4 hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/[0.06] transition-all duration-200 w-fit"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +50,7 @@ export default function Contact() {
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-[#8A8A90] group-hover:text-[#F0EDE8] transition-colors"
+                className="text-[#60A5FA] group-hover:text-[#3B82F6] transition-colors"
                 aria-hidden="true"
               >
                 <rect width="20" height="16" x="2" y="4" rx="2" />
@@ -64,7 +67,7 @@ export default function Contact() {
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-[#2A2A2E] group-hover:text-[#8A8A90] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                className="text-[#1F1F25] group-hover:text-[#60A5FA] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
                 aria-hidden="true"
               >
                 <path d="M7 7h10v10" />
@@ -80,7 +83,7 @@ export default function Contact() {
                 href="https://linkedin.com/in/jacob-alegre"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 font-body text-sm text-[#8A8A90] hover:text-[#F0EDE8] transition-colors px-4 py-2 border border-[#2A2A2E] rounded-lg hover:border-[#7B96B2]/40"
+                className="flex items-center gap-2 font-body text-sm text-[#8A8A90] hover:text-[#F0EDE8] transition-colors px-4 py-2 border border-[#1F1F25] rounded-lg hover:border-[#3B82F6]/40 hover:bg-[#3B82F6]/[0.05]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +104,7 @@ export default function Contact() {
                 href="https://github.com/loading210"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 font-body text-sm text-[#8A8A90] hover:text-[#F0EDE8] transition-colors px-4 py-2 border border-[#2A2A2E] rounded-lg hover:border-[#7B96B2]/40"
+                className="flex items-center gap-2 font-body text-sm text-[#8A8A90] hover:text-[#F0EDE8] transition-colors px-4 py-2 border border-[#1F1F25] rounded-lg hover:border-[#3B82F6]/40 hover:bg-[#3B82F6]/[0.05]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +124,7 @@ export default function Contact() {
 
           {/* Globe drag hint */}
           <ScrollReveal delay={400}>
-            <p className="font-body text-xs text-[#2A2A2E]">
+            <p className="font-body text-xs text-[#2E2E38]">
               ↗ drag the globe
             </p>
           </ScrollReveal>
